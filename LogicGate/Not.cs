@@ -16,7 +16,7 @@ namespace LogicGate
         }
 
         public bool GetResult()
-        {
+        {       
             if(i1 == true)
             {
                 return false;
