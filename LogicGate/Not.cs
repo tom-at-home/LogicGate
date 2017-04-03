@@ -8,16 +8,16 @@ namespace LogicGate
 {
     class Not : IInput1, IOutput
     {
-        bool i1;
+        IOutput input1;
 
         public void ConnectInput1(IOutput output)
         {
-            i1 = output.GetResult();
+            this.input1 = output;
         }
 
         public bool GetResult()
         {       
-            if(i1 == true)
+            if(input1.GetResult() == true)
             {
                 return false;
             }

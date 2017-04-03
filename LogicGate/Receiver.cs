@@ -9,16 +9,16 @@ namespace LogicGate
     class Receiver : IInput1
     {
 
-        bool result;
+        IOutput input;
 
         public void ConnectInput1(IOutput output)
         {
-            result = output.GetResult();
+            this.input = output;
         }
 
         public void showResult()
         {
-            Console.WriteLine(result);
+            Console.WriteLine(input.GetResult());
         }
     }
 }

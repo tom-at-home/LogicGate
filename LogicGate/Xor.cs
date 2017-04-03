@@ -8,22 +8,23 @@ namespace LogicGate
 {
     class Xor : IInput1, IInput2, IOutput
     {
-        bool i1;
-        bool i2;
+        IOutput input1;
+        IOutput input2;
 
         public void ConnectInput1(IOutput output)
         {
-            i1 = output.GetResult();
+            this.input1 = output;
         }
 
         public void ConnectInput2(IOutput output)
         {
-            i2 = output.GetResult();
+            this.input2 = output;
         }
 
         public bool GetResult()
         {
-            if ((i1 == true && i2 == false) || (i1 == false && i2 == true))
+            if ((input1.GetResult() == true && input2.GetResult() == false) || 
+                (input1.GetResult() == false && input2.GetResult() == true))
             {
                 return true;
             }

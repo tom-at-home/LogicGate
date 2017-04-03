@@ -11,6 +11,7 @@ namespace LogicGate
         static void Main(string[] args)
         {
 
+
             // Einfacher ODER-GATTER
             //Or or1 = new Or();
             //or1.ConnectInput1(new FalseProducer());
@@ -21,28 +22,43 @@ namespace LogicGate
             //rec.showResult();
 
             // Beispiel-Gatter aus der Aufgabe
+            //Not not1 = new Not();
+            //not1.ConnectInput1(new FalseProducer());
+
+            //And and1 = new And();
+            //and1.ConnectInput1(new TrueProducer());
+            //and1.ConnectInput2(not1);
+
+            //And and2 = new And();
+            //and2.ConnectInput1(new TrueProducer());
+            //and2.ConnectInput2(new TrueProducer());
+
+            //Xor xor1 = new Xor();
+            //xor1.ConnectInput1(new TrueProducer());
+            //xor1.ConnectInput2(new FalseProducer());
+
+            //And and3 = new And();
+            //and3.ConnectInput1(and1);
+            //and3.ConnectInput2(xor1);
+
+            //Receiver rec = new Receiver();
+            //rec.ConnectInput1(and3);
+            //rec.showResult();
+
             Not not1 = new Not();
-            not1.ConnectInput1(new FalseProducer());
+            not1.ConnectInput1(new TrueProducer());
 
-            And and1 = new And();
-            and1.ConnectInput1(new TrueProducer());
-            and1.ConnectInput2(not1);
-
-            And and2 = new And();
-            and2.ConnectInput1(new TrueProducer());
-            and2.ConnectInput2(new TrueProducer());
-
-            Xor xor1 = new Xor();
-            xor1.ConnectInput1(new TrueProducer());
-            xor1.ConnectInput2(new TrueProducer());
-
-            And and3 = new And();
-            and3.ConnectInput1(and1);
-            and3.ConnectInput2(xor1);
+            Not not2 = new Not();
+            not2.ConnectInput1(not1);
 
             Receiver rec = new Receiver();
-            rec.ConnectInput1(and3);
+            rec.ConnectInput1(not2);
+
+            //not1.ConnectInput1(new FalseProducer());
+
             rec.showResult();
+
+            Console.ReadLine();
 
         }
     }
